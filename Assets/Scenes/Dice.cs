@@ -18,6 +18,15 @@ public class Dice : MonoBehaviour
         if (diceSprites.Length != 6)
             Debug.LogError("請在 Inspector 填滿 6 張骰子貼圖！");
     }
+    void OnMouseEnter()
+    {
+        CursorManager.Instance.UseHandCursor();
+    }
+
+    void OnMouseExit()
+    {
+        CursorManager.Instance.UseDefaultCursor();
+    }
 
     void OnMouseDown()
     {
