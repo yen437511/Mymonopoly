@@ -8,6 +8,7 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    // public ShopUI shopUI;
     public List<Transform> boardPoints;    // 盤上 40 個格子的 Transform
     public List<Player> players;           // 玩家清單
     public Text messageText;               // 文字
@@ -109,7 +110,7 @@ public class GameManager : MonoBehaviour
                     }
                     else if (s == tile.spriteD)
                     {
-                        msg = "你走到了 D！";
+                        ShopUI.Instance.Show();
                     }
                 }
                 if (!string.IsNullOrEmpty(msg))

@@ -37,7 +37,7 @@ public class Tile : MonoBehaviour
         if (r < 0.30f)              toShow = spriteA;
         else if (r < 0.30f + 0.20f) toShow = spriteB;
         else if (r < 0.30f + 0.20f + 0.05f) toShow = spriteC;
-        else if (r < 0.30f + 0.20f + 0.05f + 0.05f) toShow = spriteD;
+        else if (r < 0.30f + 0.20f + 0.05f + 0.45f) toShow = spriteD;
         // 剩下的機率 (0.40) toShow 保持為 null
 
         // 3. 若有選到圖，做顯示＋動畫
