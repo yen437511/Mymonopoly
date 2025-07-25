@@ -13,6 +13,8 @@ public class ShopUI : MonoBehaviour
     public Image itemImage;                     // 詳細資訊圖片
     public Text itemNameText;                   // 詳細資訊物品名稱
     public Text itemInfoText;                   // 詳細資訊物品資訊
+    public Button exitButton;                   // 離開按鈕
+    public Button buyButton;                    // 離開按鈕
 
     void Awake()
     {
@@ -22,6 +24,7 @@ public class ShopUI : MonoBehaviour
     void Start()
     {
         shopPanel.SetActive(false);
+        buyButton.interactable = false;
         for (int i = 0; i < 4; i++)
         {
             foreach (var item in shopItems)
@@ -30,6 +33,11 @@ public class ShopUI : MonoBehaviour
                 go.GetComponent<ShopItemButton>().Setup(item, OnClick);
             }
         }
+        // RemoveAllListeners 可避免重複綁定
+        exitButton.onClick.RemoveAllListeners();
+        exitButton.onClick.AddListener(Hide);
+        buyButton.onClick.RemoveAllListeners();
+        buyButton.onClick.AddListener(Buy);
         // 假設你有一個 List<Item> shopItems
         // foreach (var item in shopItems)
         // {
@@ -51,9 +59,20 @@ public class ShopUI : MonoBehaviour
 
     void OnClick(Item item)
     {
+        buyButton.interactable = true;
         itemImage.color = new Color(1f, 1f, 1f, 1f);
         itemImage.sprite = item.icon;
         itemNameText.text = item.itemName;
-        itemInfoText.text = item.attack.ToString();
+        itemInfoText.text = "攻擊力：" + item.attack.ToString() + "\n防禦力：" + item.defense.ToString();
+    }
+
+    void Buy()
+    {
+        if (string.IsNullOrEmpty(itemNameText.text) || string.IsNullOrEmpty(itemInfoText.text))
+            return;
+        buyButton.interactable = false;
+        itemImage.color = new Color(1f, 1f, 1f, 0f);
+        itemNameText.text = "";
+        itemInfoText.text = "";
     }
 }

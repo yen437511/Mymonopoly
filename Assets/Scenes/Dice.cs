@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class Dice : MonoBehaviour
@@ -30,6 +31,9 @@ public class Dice : MonoBehaviour
 
     void OnMouseDown()
     {
+        // 如果滑鼠正好在任何 UI 元件之上，就跳過
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
         if (gameManager.isMoving || isRolling)
             return;
         StartCoroutine(Roll());
