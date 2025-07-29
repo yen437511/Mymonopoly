@@ -546,19 +546,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 180417907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 155e66b6a3a8ffb43a557c917c7896ed, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &180417907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2942,8 +2930,8 @@ MonoBehaviour:
   - {fileID: 537384846}
   - {fileID: 805166200}
   - {fileID: 1718582967}
-  players:
-  - pieceTransform: {fileID: 1920933928}
+  player:
+    pieceTransform: {fileID: 1920933928}
     positionIndex: 29
     money: 1000
   messageText: {fileID: 1548780514}
@@ -3006,6 +2994,7 @@ MonoBehaviour:
   itemInfoText: {fileID: 852381978}
   exitButton: {fileID: 180417906}
   buyButton: {fileID: 2106935299}
+  tempItem: {fileID: 0}
 --- !u!1 &805166199
 GameObject:
   m_ObjectHideFlags: 0
@@ -6416,6 +6405,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 943673955}
     m_Modifications:
+    - target: {fileID: -4376308876042559798, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
+      propertyPath: nameText
+      value: 
+      objectReference: {fileID: 5241809300738675568}
+    - target: {fileID: -4376308876042559798, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
+      propertyPath: buyButton
+      value: 
+      objectReference: {fileID: 8775943027353325308}
+    - target: {fileID: -4376308876042559798, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
+      propertyPath: iconImage
+      value: 
+      objectReference: {fileID: 5138177382154549966}
     - target: {fileID: -2251565795060299644, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
       propertyPath: nameText
       value: 
@@ -6508,8 +6509,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShopItemButton
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: -2251565795060299644, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6541,6 +6541,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5115613434068162760, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
   m_PrefabInstance: {fileID: 2829527614699431712}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8775943027353325308 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2337678113453309684, guid: f92ea8ca79336eb419e1ab98cdf78eb7, type: 3}
+  m_PrefabInstance: {fileID: 2829527614699431712}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

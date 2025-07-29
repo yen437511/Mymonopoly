@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-public class ShopItemButton : MonoBehaviour
+public class BagItemButton : MonoBehaviour
 {
     public Image iconImage;    // 拖入 Prefab 裡的 Image 元件
     public Text nameText;

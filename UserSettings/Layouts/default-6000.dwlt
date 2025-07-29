@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1366
     height: 677
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -69,8 +69,8 @@ MonoBehaviour:
     y: 0
     width: 282
     height: 621
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -95,8 +95,8 @@ MonoBehaviour:
     y: 0
     width: 208
     height: 440
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 226}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -399,7 +399,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Images/Logo
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -409,16 +409,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Images/Logo
+  - Assets/Prefabs
   m_LastFoldersGridSize: 64
   m_LastProjectPath: C:\GameFolder\MyMonopoly
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: 82b60000
-    m_LastClickedID: 46722
-    m_ExpandedIDs: 0000000046b5000076b60000
+    scrollPos: {x: 0, y: 157}
+    m_SelectedIDs: b2b60000
+    m_LastClickedID: 46770
+    m_ExpandedIDs: 0000000070b50000a0b60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -447,7 +447,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000046b50000
+    m_ExpandedIDs: 0000000070b50000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,7 +548,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 917
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -593,9 +593,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b4b30000
-      m_LastClickedID: 46004
-      m_ExpandedIDs: e49cffff7a9effff04fbffff86b30000ceb30000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 04fbfffff4ffffff54b30000e8b30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1101,9 +1101,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 545.0101, y: -274.09055, z: 5.282099}
+    m_Target: {x: -307.8917, y: -14.655534, z: -1.5199738}
     speed: 2
-    m_Value: {x: 545.0101, y: -274.09055, z: 5.282099}
+    m_Value: {x: -307.8917, y: -14.655534, z: -1.5199738}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1153,9 +1153,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 500.69098
+    m_Target: 1180.8967
     speed: 2
-    m_Value: 500.69098
+    m_Value: 1180.8967
   m_Ortho:
     m_Target: 1
     speed: 2

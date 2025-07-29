@@ -8,18 +8,30 @@ using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance { get; private set; }
     // public ShopUI shopUI;
     public List<Transform> boardPoints;    // 盤上 40 個格子的 Transform
-    public List<Player> players;           // 玩家清單
+    public Player player;           // 玩家清單
     public Text messageText;               // 文字
     public Text moneyText;               // 金額
-    private int currentPlayerIndex = 0;
+    // private int currentPlayerIndex = 0;
     public bool isMoving = false; //人物是否移動中
+
+    void Awake()
+    {
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
         messageText.gameObject.SetActive(false);
-        StartCoroutine(MovePlayer(players[0], 1));
+        StartCoroutine(MovePlayer(player, 1));
         // rollDiceButton.onClick.AddListener(OnRollDice);
         // UpdateTurnUI();
     }
@@ -27,7 +39,7 @@ public class GameManager : MonoBehaviour
     public void OnRollDice(int diceValue)
     {
         if (isMoving) return;
-        StartCoroutine(MovePlayer(players[currentPlayerIndex], diceValue));
+        StartCoroutine(MovePlayer(player, diceValue));
     }
 
     IEnumerator MovePlayer(Player p, int steps)
@@ -143,7 +155,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     void UpdateMoney(int money)
     {
-        int start = players[0].money;
+        int start = player.money;
         int end   = start + money;
         float duration = 1f;       // 動畫長度 1 秒
         if (money != 0)
@@ -158,7 +170,7 @@ public class GameManager : MonoBehaviour
             duration
         )
         .SetEase(Ease.OutQuad)
-        .OnComplete(() => players[0].money = end);
+        .OnComplete(() => player.money = end);
         }
     }
     
