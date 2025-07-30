@@ -4,29 +4,36 @@ using System.Collections;
 
 public class Dice : MonoBehaviour
 {
+    public static Dice Instance { get; private set; }
+
     [Header("骰子點數貼圖 (1~6)")]
     public Sprite[] diceSprites;         // 6 張貼圖，陣列長度要設 6
     public float rollDuration = 1f;      // 動畫總長
     public float frameInterval = 0.1f;  // 每幾秒換一次圖
 
+    public bool isDisabled = false;
     private SpriteRenderer sr;
     private bool isRolling = false;      // 正在骰動旗標
     public GameManager gameManager;
 
     void Awake()
     {
+        Instance = this;
         sr = GetComponent<SpriteRenderer>();
         if (diceSprites.Length != 6)
             Debug.LogError("請在 Inspector 填滿 6 張骰子貼圖！");
     }
+    
     void OnMouseEnter()
     {
-        CursorManager.Instance.UseHandCursor();
+        if (!isDisabled)
+            CursorManager.Instance.UseHandCursor();
     }
 
     void OnMouseExit()
     {
-        CursorManager.Instance.UseDefaultCursor();
+        if (!isDisabled)
+            CursorManager.Instance.UseDefaultCursor();
     }
 
     void OnMouseDown()

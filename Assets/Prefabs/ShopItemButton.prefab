@@ -216,7 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconImage: {fileID: 3804307697376184703}
   nameText: {fileID: 3618496669814875461}
-  buyButton: {fileID: 2337678113453309684}
+  thisButton: {fileID: 2337678113453309684}
 --- !u!1 &7688642109192992363
 GameObject:
   m_ObjectHideFlags: 0

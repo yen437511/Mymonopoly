@@ -26,14 +26,12 @@ public class ShopUI : MonoBehaviour
     {
         shopPanel.SetActive(false);
         buyButton.interactable = false;
-        for (int i = 0; i < 4; i++)
+        foreach (var item in shopItems)
         {
-            foreach (var item in shopItems)
-            {
-                var go = Instantiate(itemButtonPrefab, listContent);
-                go.GetComponent<ShopItemButton>().Setup(item, OnClick);
-            }
+            var go = Instantiate(itemButtonPrefab, listContent);
+            go.GetComponent<ShopItemButton>().Setup(item, OnClick);
         }
+
         // RemoveAllListeners 可避免重複綁定
         exitButton.onClick.RemoveAllListeners();
         exitButton.onClick.AddListener(Hide);
@@ -51,11 +49,15 @@ public class ShopUI : MonoBehaviour
     public void Show()
     {
         shopPanel.SetActive(true);
+        Dice.Instance.isDisabled = true;
+        Bag.Instance.isDisabled = true;
     }
 
     public void Hide()
     {
         shopPanel.SetActive(false);
+        Dice.Instance.isDisabled = false;
+        Bag.Instance.isDisabled = false;
     }
 
     void OnClick(Item item)
@@ -79,6 +81,21 @@ public class ShopUI : MonoBehaviour
         itemNameText.text = "";
         itemInfoText.text = "";
         GameManager.Instance.player.money -= tempItem.price;
+
+        // 將商品從列表刪除
+        shopItems.Remove(tempItem);
+        foreach (Transform child in listContent)
+        {
+            var btn = child.GetComponent<ShopItemButton>();
+            if (btn != null && btn.Item == tempItem)  // 假设 ShopItemButton 暴露了 public Item Item {get;}
+            {
+                Destroy(child.gameObject);
+                break;
+            }
+        }
+        // 商品加到背包
+        BagUI.Instance.bagItems.Add(tempItem);
+
         tempItem = null;
     }
 }
