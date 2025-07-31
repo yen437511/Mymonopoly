@@ -20,7 +20,16 @@ public class Bag : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!isDisabled)
+        //if (!isDisabled)
             CursorManager.Instance.UseDefaultCursor();
+    }
+
+    void OnMouseDown()
+    {
+        if (isDisabled)
+            return;
+        if (GameManager.Instance.isMoving || Dice.Instance.isRolling)
+            return;
+        BagUI.Instance.Show();
     }
 }

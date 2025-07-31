@@ -13,7 +13,7 @@ public class Dice : MonoBehaviour
 
     public bool isDisabled = false;
     private SpriteRenderer sr;
-    private bool isRolling = false;      // 正在骰動旗標
+    public bool isRolling = false;      // 正在骰動旗標
     public GameManager gameManager;
 
     void Awake()
@@ -23,7 +23,7 @@ public class Dice : MonoBehaviour
         if (diceSprites.Length != 6)
             Debug.LogError("請在 Inspector 填滿 6 張骰子貼圖！");
     }
-    
+
     void OnMouseEnter()
     {
         if (!isDisabled)
@@ -32,14 +32,15 @@ public class Dice : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (!isDisabled)
+        //if (!isDisabled)
             CursorManager.Instance.UseDefaultCursor();
     }
 
     void OnMouseDown()
     {
         // 如果滑鼠正好在任何 UI 元件之上，就跳過
-        if (EventSystem.current.IsPointerOverGameObject())
+        // if (EventSystem.current.IsPointerOverGameObject())
+        if (isDisabled)
             return;
         if (gameManager.isMoving || isRolling)
             return;

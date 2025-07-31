@@ -13,7 +13,7 @@ public class BagUI : MonoBehaviour
     public Text itemNameText;                   // 詳細資訊物品名稱
     public Text itemInfoText;                   // 詳細資訊物品資訊
     public Button exitButton;                   // 離開按鈕
-    public Button buyButton;                    // 購買按鈕
+    public Button actionButton;                 // 裝備/出售按鈕
     public Item tempItem;                       // 存放使用者點擊的物品
 
 
@@ -26,16 +26,7 @@ public class BagUI : MonoBehaviour
     void Start()
     {
         bagPanel.SetActive(false);
-        buyButton.interactable = false;
-        foreach (var item in bagItems)
-        {
-            var go = Instantiate(itemButtonPrefab, listContent);
-            go.GetComponent<BagItemButton>().Setup(item, OnClick);
-        }
-
-        // RemoveAllListeners 可避免重複綁定
-        exitButton.onClick.RemoveAllListeners();
-        exitButton.onClick.AddListener(Hide);
+        
         //buyButton.onClick.RemoveAllListeners();
         //buyButton.onClick.AddListener(Buy);
         // 假設你有一個 List<Item> shopItems
@@ -52,6 +43,17 @@ public class BagUI : MonoBehaviour
         bagPanel.SetActive(true);
         Dice.Instance.isDisabled = true;
         Bag.Instance.isDisabled = true;
+
+        actionButton.interactable = false;
+        foreach (var item in bagItems)
+        {
+            var go = Instantiate(itemButtonPrefab, listContent);
+            go.GetComponent<BagItemButton>().Setup(item, OnClick);
+        }
+
+        // RemoveAllListeners 可避免重複綁定
+        exitButton.onClick.RemoveAllListeners();
+        exitButton.onClick.AddListener(Hide);
     }
 
     public void Hide()
@@ -64,7 +66,7 @@ public class BagUI : MonoBehaviour
     void OnClick(Item item)
     {
         tempItem = item;
-        buyButton.interactable = true;
+        actionButton.interactable = true;
         itemImage.color = new Color(1f, 1f, 1f, 1f);
         itemImage.sprite = item.icon;
         itemNameText.text = item.itemName;
